@@ -1,13 +1,16 @@
-# Portfolio Site with Next.js, shadcn/ui, and Contentful
+# Fiston Turner Portfolio
 
-This is a minimalist portfolio site built with Next.js, styled using shadcn/ui components, and powered by Contentful CMS.
+A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Contentful CMS. This portfolio showcases projects, blog posts, and includes features like dark mode and a newsletter subscription.
 
 ## Features
 
 - Responsive design with mobile-friendly navigation
-- Projects page fetching data from Contentful
-- About page with customizable content
-- Easily extendable and customizable
+- Dark mode support
+- Dynamic content management using Contentful CMS
+- Blog section with individual post pages
+- Projects section with individual project pages
+- Newsletter subscription functionality
+- SEO optimization
 
 ## Prerequisites
 
@@ -19,49 +22,35 @@ This is a minimalist portfolio site built with Next.js, styled using shadcn/ui c
 
 1. Clone this repository:
    ```
-   git clone <repository-url>
-   cd portfolio-site
+   git clone https://github.com/fiston-user/fiston-turner.git
+   cd fiston-turner
    ```
 
 2. Install dependencies:
    ```
    npm install
    ```
-   or
-   ```
-   yarn install
-   ```
 
 3. Set up Contentful:
-   - Log in to your Contentful account
-   - Create a new space or use an existing one
-   - In your space, create a new content type called "Project" with the following fields:
-     - Title (Short text)
-     - Description (Long text)
-     - Slug (Short text)
-   - Add some sample projects to your space
+   - Create a new space in Contentful or use an existing one
+   - In your Contentful space, create content models for `Project` and `BlogPost`
+   - Add sample content for projects and blog posts
 
 4. Set up environment variables:
    - Rename `.env.local.example` to `.env.local`
-   - Update the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` with your Contentful space ID and access token
+   - Update the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` with your Contentful credentials
 
-## Running the site
-
-To run the development server:
+## Running the Development Server
 
 ```
 npm run dev
-```
-or
-```
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 ## Customization
 
-- Update the content in `src/app/page.tsx` and `src/app/about/page.tsx` to personalize your portfolio
+- Update the content in `src/app/page.tsx` and other pages to personalize your portfolio
 - Modify the `Header` and `Footer` components in `src/components/` to change the site navigation and footer content
 - Add new pages or components as needed
 - Customize the styling by modifying the Tailwind classes or adding new styles in `src/app/globals.css`
@@ -71,3 +60,17 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 This site can be easily deployed to platforms like Vercel or Netlify. Follow their respective documentation for deploying Next.js applications.
 
 Remember to set up the environment variables (CONTENTFUL_SPACE_ID and CONTENTFUL_ACCESS_TOKEN) in your deployment platform.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+Fiston Turner - [fiston.turner@outlook.com](mailto:fiston.turner@outlook.com)
+
+Project Link: [https://github.com/fiston-user/fiston-turner](https://github.com/fiston-user/fiston-turner)
