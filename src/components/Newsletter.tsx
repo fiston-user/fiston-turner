@@ -29,7 +29,7 @@ export default function Newsletter() {
       } else {
         setMessage(data.error || 'An error occurred. Please try again.')
       }
-    } catch (error) {
+    } catch {
       setMessage('An error occurred. Please try again.')
     } finally {
       setIsLoading(false)
@@ -37,7 +37,7 @@ export default function Newsletter() {
   }
 
   return (
-    <div className="mt-12 p-6 bg-gray-100 dark:bg-neutral-900 rounded-lg">
+    <div className="mt-12 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
       <h2 className="text-xl font-semibold mb-4">Subscribe to my newsletter</h2>
       <p className="mb-4 text-gray-600 dark:text-gray-300">Get the best tips and tricks for building a clean and modern website.</p>
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
@@ -46,7 +46,7 @@ export default function Newsletter() {
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="flex-grow px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-neutral-700 dark:text-white"
+          className="flex-grow px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
           required
         />
         <button

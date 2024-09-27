@@ -1,65 +1,54 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
-import Link from "next/link";
-import { getBlogPosts } from "@/lib/contentful";
-import { Metadata } from "next";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import Breadcrumb from '@/components/Breadcrumb'
+import Link from 'next/link'
+import { getBlogPosts, BlogPost } from '@/lib/contentful'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Read my latest thoughts, insights, and tutorials on software development",
+  title: 'Blog',
+  description: 'Read my latest thoughts, insights, and tutorials on software development',
   openGraph: {
-    title: "Blog | Fiston - Portfolio",
-    description:
-      "Read my latest thoughts, insights, and tutorials on software development",
+    title: 'Blog | Fiston - Portfolio',
+    description: 'Read my latest thoughts, insights, and tutorials on software development',
   },
-};
+}
 
 export default async function Blog() {
-  const blogPosts = await getBlogPosts();
+  const blogPosts = await getBlogPosts()
 
-  const breadcrumbItems = [{ label: "Blog", href: "/blog" }];
+  const breadcrumbItems = [
+    { label: 'Blog', href: '/blog' }
+  ]
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-gray-900 dark:text-white">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-16">
         <Breadcrumb items={breadcrumbItems} />
         <h1 className="text-4xl font-bold mb-8">Blog</h1>
         <section className="space-y-6">
           {blogPosts.length > 0 ? (
-            blogPosts.map((post: any) => (
+            blogPosts.map((post: BlogPost) => (
               <article key={post.sys.id}>
                 <time className="text-gray-500 dark:text-gray-400">
-                  {new Date(post.sys.createdAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
+                  {new Date(post.sys.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </time>
                 <h2 className="text-xl font-semibold">
-                  <Link
-                    href={`/blog/${post.fields.slug}`}
-                    className="hover:underline"
-                  >
+                  <Link href={`/blog/${post.fields.slug}`} className="hover:underline">
                     {post.fields.title}
                   </Link>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400">
-                  by {post.fields.author}
-                </p>
+                <p className="text-gray-600 dark:text-gray-400">by {post.fields.author}</p>
               </article>
             ))
           ) : (
-            <p>
-              No blog posts found. Check Contentful for the 'blogPost' content
-              type.
-            </p>
+            <p>No blog posts found. Check Contentful for the &apos;blogPost&apos; content type.</p>
           )}
         </section>
       </main>
       <Footer />
     </div>
-  );
+  )
 }
