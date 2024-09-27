@@ -8,10 +8,10 @@ const Footer = () => {
           <Link href="/rss" className="hover:text-white transition-colors">
             rss
           </Link>
-          <Link href="https://github.com/yourusername" className="hover:text-white transition-colors">
+          <Link href="https://github.com/fiston-user/fiston-turner.git" className="hover:text-white transition-colors">
             github
           </Link>
-          <Link href="/source" className="hover:text-white transition-colors">
+          <Link href="https://github.com/fiston-user/fiston-turner" className="hover:text-white transition-colors">
             view source
           </Link>
         </div>
