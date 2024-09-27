@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createClient } from 'contentful'
+import { createClient } from "contentful";
 
 export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
-})
+});
 
 export interface BlogPost {
   sys: any;
@@ -22,6 +22,13 @@ export interface Project {
     title: string;
     description: string;
     slug: string;
+    image: {
+      fields: {
+        file: {
+          url: string;
+        };
+      };
+    };
   };
 }
 
@@ -30,36 +37,39 @@ async function getEntries<T>(contentType: string, options = {}): Promise<T[]> {
     const response = await client.getEntries({
       content_type: contentType,
       ...options,
-    })
-    return response.items as T[]
+    });
+    return response.items as T[];
   } catch (error) {
-    console.error(`Error fetching entries for content type "${contentType}":`, error)
-    return []
+    console.error(
+      `Error fetching entries for content type "${contentType}":`,
+      error
+    );
+    return [];
   }
 }
 
 export async function getProjects(): Promise<Project[]> {
-  return getEntries<Project>('project')
+  return getEntries<Project>("project");
 }
 
 export async function getProject(slug: string): Promise<Project | undefined> {
-  const items = await getEntries<Project>('project', {
-    'fields.slug': slug,
+  const items = await getEntries<Project>("project", {
+    "fields.slug": slug,
     limit: 1,
-  })
-  return items[0]
+  });
+  return items[0];
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  return getEntries<BlogPost>('blogPost', {
-    order: ['-sys.createdAt'],
-  })
+  return getEntries<BlogPost>("blogPost", {
+    order: ["-sys.createdAt"],
+  });
 }
 
 export async function getBlogPost(slug: string): Promise<BlogPost | undefined> {
-  const items = await getEntries<BlogPost>('blogPost', {
-    'fields.slug': slug,
+  const items = await getEntries<BlogPost>("blogPost", {
+    "fields.slug": slug,
     limit: 1,
-  })
-  return items[0]
+  });
+  return items[0];
 }
