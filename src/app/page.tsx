@@ -6,7 +6,7 @@ import ProjectCard from "@/components/ProjectCard";
 import { BlogPost, getBlogPosts, getProjects, Project } from "@/lib/contentful";
 import { Metadata } from "next";
 import Link from "next/link";
-import { VerificationBadge } from "./blog/page";
+import VerificationBadge from "@/components/VerificationBadge";
 
 export const metadata: Metadata = {
   title: "Home",
