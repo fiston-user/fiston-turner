@@ -25,16 +25,6 @@ export async function generateMetadata({
       title: `${project.fields.title} | Fiston - Portfolio`,
       description: project.fields.description,
       type: "website",
-      images: [
-        {
-          url:
-            project.fields.image?.fields?.file?.url ||
-            "https://your-default-image-url.jpg",
-          width: 1200,
-          height: 630,
-          alt: project.fields.title,
-        },
-      ],
     },
   };
 }

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
-import Link from "next/link";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import ProjectCard from "@/components/ProjectCard";
 import { getProjects, Project } from "@/lib/contentful";
 import { Metadata } from "next";
 
@@ -28,28 +28,10 @@ export default async function Projects() {
       <main className="flex-grow container mx-auto px-4 py-16">
         <Breadcrumb items={breadcrumbItems} />
         <h1 className="text-4xl font-bold mb-8">Projects</h1>
-        <section className="space-y-8">
+        <section className="grid gap-6 sm:grid-cols-2">
           {projects.length > 0 ? (
             projects.map((project: Project) => (
-              <article key={project.sys.id}>
-                <time className="text-gray-500 dark:text-gray-400">
-                  {new Date(project.sys.createdAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                  })}
-                </time>
-                <h2 className="text-xl font-semibold">
-                  <Link
-                    href={`/projects/${project.fields.slug}`}
-                    className="hover:underline"
-                  >
-                    {project.fields.title}
-                  </Link>
-                </h2>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {project.fields.description}
-                </p>
-              </article>
+              <ProjectCard key={project.sys.id} project={project} />
             ))
           ) : (
             <p>

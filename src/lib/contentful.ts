@@ -22,13 +22,8 @@ export interface Project {
     title: string;
     description: string;
     slug: string;
-    image: {
-      fields: {
-        file: {
-          url: string;
-        };
-      };
-    };
+    link: string;
+    tags: string;
   };
 }
 
