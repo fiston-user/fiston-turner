@@ -32,12 +32,28 @@ export default async function Home() {
           something cool together.
         </p>
 
+        <h2 className="text-xl sm:text-2xl font-bold mb-4">Recent Projects</h2>
+        <section className="grid gap-6 mb-12 sm:grid-cols-2">
+          {projects.length > 0 ? (
+            projects
+              .slice(0, 4)
+              .map((project: Project) => (
+                <ProjectCard key={project.sys.id} project={project} />
+              ))
+          ) : (
+            <p>
+              No projects found. Check Contentful for the &apos;project&apos;
+              content type.
+            </p>
+          )}
+        </section>
+
         <h2 className="text-xl sm:text-2xl font-bold mb-4">
           Recent Blog Posts
         </h2>
         <section className="grid gap-6 mb-12 sm:grid-cols-2">
           {blogPosts.length > 0 ? (
-            blogPosts.slice(0, 2).map((post: BlogPost) => (
+            blogPosts.slice(0, 4).map((post: BlogPost) => (
               <article
                 key={post.sys.id}
                 className="border border-gray-200 dark:border-neutral-800 p-4 rounded-lg"
@@ -66,22 +82,6 @@ export default async function Home() {
           ) : (
             <p>
               No blog posts found. Check Contentful for the &apos;blogPost&apos;
-              content type.
-            </p>
-          )}
-        </section>
-
-        <h2 className="text-xl sm:text-2xl font-bold mb-4">Recent Projects</h2>
-        <section className="grid gap-6 mb-12 sm:grid-cols-2">
-          {projects.length > 0 ? (
-            projects
-              .slice(0, 2)
-              .map((project: Project) => (
-                <ProjectCard key={project.sys.id} project={project} />
-              ))
-          ) : (
-            <p>
-              No projects found. Check Contentful for the &apos;project&apos;
               content type.
             </p>
           )}

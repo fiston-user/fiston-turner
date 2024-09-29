@@ -40,7 +40,7 @@ export default async function Blog() {
                     day: "numeric",
                   })}
                 </time>
-                <h2 className="text-xl font-semibold">
+                <h2 className="text-lg sm:text-xl font-semibold truncate">
                   <Link
                     href={`/blog/${post.fields.slug}`}
                     className="hover:underline"
