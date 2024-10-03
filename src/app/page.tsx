@@ -7,6 +7,7 @@ import { BlogPost, getBlogPosts, getProjects, Project } from "@/lib/contentful";
 import { Metadata } from "next";
 import Link from "next/link";
 import VerificationBadge from "@/components/VerificationBadge";
+import HireMe from "@/components/HireMe"; // Add this import
 
 export const metadata: Metadata = {
   title: "Home",
@@ -31,7 +32,7 @@ export default async function Home() {
           code and bad jokes. Always learning, rarely napping. Let&apos;s build
           something cool together.
         </p>
-
+        <HireMe /> {/* Add this line */}
         <h2 className="text-xl sm:text-2xl font-bold mb-4">Recent Projects</h2>
         <section className="grid gap-6 mb-12 sm:grid-cols-2">
           {projects.length > 0 ? (
@@ -47,7 +48,6 @@ export default async function Home() {
             </p>
           )}
         </section>
-
         <h2 className="text-xl sm:text-2xl font-bold mb-4">
           Recent Blog Posts
         </h2>
@@ -86,7 +86,6 @@ export default async function Home() {
             </p>
           )}
         </section>
-
         <Newsletter />
       </main>
       <Footer />

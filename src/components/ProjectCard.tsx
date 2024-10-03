@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.fields.title}
         </Link>
       </h3>
-      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-2">
+      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-2 line-clamp-5">
         {project.fields.description}
       </p>
       <div className="flex flex-wrap gap-2 mb-3">
