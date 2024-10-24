@@ -21,17 +21,20 @@ A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Con
 ## Installation
 
 1. Clone this repository:
+
    ```
    git clone https://github.com/fiston-user/fiston-turner.git
    cd fiston-turner
    ```
 
 2. Install dependencies:
+
    ```
    npm install
    ```
 
 3. Set up Contentful:
+
    - Create a new space in Contentful or use an existing one
    - In your Contentful space, create content models for `Project` and `BlogPost`
    - Add sample content for projects and blog posts
@@ -39,6 +42,7 @@ A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Con
 4. Set up environment variables:
    - Rename `.env.local.example` to `.env.local`
    - Update the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` with your Contentful credentials
+   - Update the `NEXT_PUBLIC_YOUTUBE_API_KEY` with your YouTube API key
 
 ## Running the Development Server
 
