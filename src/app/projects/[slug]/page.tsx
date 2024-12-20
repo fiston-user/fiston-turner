@@ -71,7 +71,7 @@ export default async function Project({ params }: Props) {
                   )}
                 </div>
               </header>
-
+{/* 
               {project.fields.image && (
                 <div className="relative aspect-[16/9] mb-12 overflow-hidden rounded-lg">
                   <Image
@@ -81,7 +81,7 @@ export default async function Project({ params }: Props) {
                     className="object-cover"
                   />
                 </div>
-              )}
+              )} */}
 
               <div className="space-y-8">
                 {tags.length > 0 && (
@@ -97,11 +97,11 @@ export default async function Project({ params }: Props) {
                   </div>
                 )}
 
-                {project.fields.content && (
-                  <div 
+                {project.fields.description && (
+                  <div
                     className="prose prose-invert prose-neutral max-w-none space-y-6 text-neutral-300"
                     dangerouslySetInnerHTML={{
-                      __html: project.fields.content,
+                      __html: project.fields.description,
                     }}
                   />
                 )}

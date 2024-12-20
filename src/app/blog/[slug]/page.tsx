@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${post.fields.title} - Fiston Turner`,
-    description: post.fields.excerpt || "Read this post on my blog.",
+    description: post.fields.content || "Read this post on my blog.",
   };
 }
 
@@ -59,12 +59,12 @@ export default async function BlogPost({ params }: Props) {
                       day: "numeric",
                     })}
                   </time>
-                  {post.fields.readingTime && (
+
                     <>
                       <span className="hidden sm:inline">·</span>
-                      <span>{post.fields.readingTime} min read</span>
+                      <span>2 min read</span>
                     </>
-                  )}
+           
                 </div>
               </header>
 
