@@ -1,10 +1,9 @@
-import { Metadata } from "next";
-import { getProject } from "@/lib/contentful";
-import Link from "next/link";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { getProject } from "@/lib/contentful";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 
 interface Props {
   params: {
