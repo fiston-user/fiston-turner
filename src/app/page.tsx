@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Footer from "@/components/Footer";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ProjectCard from "@/components/ProjectCard";
+import TechStack from "@/components/TechStack";
 import { BlogPost, getBlogPosts, getProjects, Project } from "@/lib/contentful";
+import { ArrowUpRight } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import HireMe from "@/components/HireMe";
-import TechStack from "@/components/TechStack";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Fiston Turner - Design Engineer",
