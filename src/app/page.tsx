@@ -27,7 +27,7 @@ export default async function Home() {
             </h1>
             <div className="space-y-6">
               <p className="text-lg sm:text-xl text-neutral-400 max-w-2xl leading-relaxed">
-              Software developer with a knack for solving problems. I write clean code and bad jokes. Always learning, rarely napping. Let's build something cool together.
+              Software developer with a knack for solving problems. I write clean code and bad jokes. Always learning, rarely napping. Let&apos;s build something cool together.
               </p>
               <TechStack />
               {/* <HireMe /> */}
