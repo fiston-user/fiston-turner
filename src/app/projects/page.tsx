@@ -1,47 +1,45 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Breadcrumb from "@/components/Breadcrumb";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import ProjectCard from "@/components/ProjectCard";
-import { getProjects, Project } from "@/lib/contentful";
 import { Metadata } from "next";
+import { getProjects, Project } from "@/lib/contentful";
+import Link from "next/link";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { ArrowLeft } from "lucide-react";
+import ProjectCard from "@/components/ProjectCard";
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description:
-    "Explore my portfolio of software development projects and applications",
-  openGraph: {
-    title: "Projects | Fiston - Portfolio",
-    description:
-      "Explore my portfolio of software development projects and applications",
-  },
+  title: "Projects - Fiston Turner",
+  description: "A collection of my work in design systems, web applications, and digital experiences.",
 };
 
 export default async function Projects() {
   const projects = await getProjects();
 
-  const breadcrumbItems = [{ label: "Projects", href: "/projects" }];
-
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-gray-900 dark:text-white">
-      <Header />
-      <main className="flex-grow container mx-auto px-4 py-16">
-        <Breadcrumb items={breadcrumbItems} />
-        <h1 className="text-4xl font-bold mb-8">Projects</h1>
-        <section className="grid gap-6 sm:grid-cols-2">
-          {projects.length > 0 ? (
-            projects.map((project: Project) => (
-              <ProjectCard key={project.sys.id} project={project} />
-            ))
-          ) : (
-            <p>
-              No projects found. Check Contentful for the &quot;project&quot;
-              content type.
-            </p>
-          )}
-        </section>
+    <div className="min-h-screen flex flex-col bg-[#111010] text-white">
+      <main className="flex-grow">
+        <MaxWidthWrapper className="py-12 sm:py-20">
+          <div className="mb-12 sm:mb-16">
+            <Link
+              href="/"
+              className="group inline-flex items-center text-sm text-neutral-400 hover:text-neutral-200 transition-colors mb-8"
+            >
+              <ArrowLeft className="mr-1 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              Back
+            </Link>
+            <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Projects</h1>
+          </div>
+
+          <div className="grid gap-4 sm:gap-8 sm:grid-cols-2">
+            {projects.length > 0 ? (
+              projects.map((project: Project) => (
+                <ProjectCard key={project.sys.id} project={project} />
+              ))
+            ) : (
+              <p className="text-neutral-400">No projects found.</p>
+            )}
+          </div>
+        </MaxWidthWrapper>
       </main>
-      <Footer />
     </div>
   );
 }
